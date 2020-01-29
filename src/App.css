@@ -26,3 +26,40 @@
     transform: rotate(360deg);
   }
 }
+
+.node{
+  border: .5px solid grey;
+  padding: 10px 50px;
+  margin: 10px 50px;
+  display: inline-block;
+  background-color: #61dafb;
+  color: #282c34;
+  vertical-align: top;
+  text-align: left;
+  border-radius: 20px;
+}
+
+.node:hover{
+  background-color: white;
+  color: #61dafb;
+  transform: scale(1.1);
+}
+
+.last-nodes{
+  display: block;
+}
+
+.tree-of-nodes{
+  border: .5px solid grey;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  background-color: #282c34;
+  color: white;
+  vertical-align: top;
+  text-align: left;
+}
+
+.hide{
+  display: none;
+}
