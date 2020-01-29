@@ -37,11 +37,19 @@
   vertical-align: top;
   text-align: left;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .node:hover{
   background-color: white;
   color: #61dafb;
+  transform: scale(1.1);
+}
+
+.last-nodes:hover{
+  background-color: white;
+  color: blue;
+  cursor: default;
   transform: scale(1.1);
 }
 
@@ -51,13 +59,18 @@
 
 .tree-of-nodes{
   border: .5px solid grey;
-  padding: 10px;
-  margin: 10px;
-  display: inline-block;
+  margin: 20px;
+  display: none;
   background-color: #282c34;
   color: white;
   vertical-align: top;
   text-align: left;
+}
+
+.level{
+  border: .5px solid grey;
+  background-color: #282c34;
+  color: white;
 }
 
 .hide{
