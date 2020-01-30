@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { CeoData as data } from './constants/ProcessData';
 
 const toggleTree = (e) => {
-  let el = document.getElementById(e.target.id).parentElement.childNodes[1];
+  let el = document.getElementById(e.target.id).parentElement.childNodes[2];
   let showEl = el.style.display;
   (showEl==="none" || showEl==="")?
     el.style.display="inline-block"
@@ -13,20 +13,26 @@ const toggleTree = (e) => {
 const createTree = (data, lev) => {
   let level = lev || 0;
   let children = [];
-  data.map(d => {
+  data.map((d,index) => {
+
+      level = index === data.length ? level : level+1;
       if (d.childs && d.childs.length) { // has child?
-          level++;
           children.push(
               <div key={d._id} className={"level level-" + (level)}>
-                  <div className="node" id={d._id} onClick={(e)=>toggleTree(e)}>{d.name}</div>
-                  {createTree(d.childs, level)}
+                <div className="level-label">{"Level"+(level--)}</div>
+                <div className="node" id={d._id} onClick={(e)=>toggleTree(e)}>{d.name}</div>
+                {createTree(d.childs, level+1)}
               </div>
           );
       } else {
           children.push(
-              <div  className="node last-nodes"key={d._id}>
+            <div key={d._id} className={"level level-" + (level)}>
+              <div className="level-label">{"Level"+(level--)}</div>
+              <div className="node last-nodes"key={d._id}>
                   {d.name}
               </div>
+            </div>
+              
           );
       }
       return null;
